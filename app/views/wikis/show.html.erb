@@ -1,2 +1,21 @@
-<h1>Wikis#show</h1>
-<p>Find me in app/views/wikis/show.html.erb</p>
+<div class="row">
+    <div class="col-md-9">
+        <h1><%= @wiki.title %></h1>
+    </div>
+    <div class="col-md-3 buttons">
+        <%= link_to "Edit", edit_wiki_path, class: 'btn btn-flicki' %>
+        <%= link_to "Delete Flicki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this Flicki?' } %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <h4>Description</h4>
+        <p><%= @wiki.description %></p>
+    </div>
+    <div class="col-md-3">
+        <h4>Director</h4>
+        <p><%= @wiki.director %></p>
+        <h4>Year Released</h4>
+        <p><%= @wiki.year %></p>
+    </div>
+</div>

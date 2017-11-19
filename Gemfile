@@ -42,6 +42,10 @@ source 'https://rubygems.org'
  
  gem 'devise'
  
+ gem 'bootstrap-sass'
+ 
+ gem 'ionicons-rails', '~> 2.0'
+ 
  group :development do
    gem 'listen', '~> 3.0.5'
  end

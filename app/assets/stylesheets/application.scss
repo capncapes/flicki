@@ -1,0 +1,116 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "ionicons";
+
+$primary-color: #fbc52c;
+$primary-complement: #ff8a00;
+$nav-color: #222;
+$gray: #555;
+
+@mixin flicki-icon {
+    content: '\f135';
+    font-family: Ionicons;
+    position: absolute;
+    left: 50%;
+    font-size: 5rem;
+    margin-left: -2rem;
+    color: $gray;
+    z-index: -1;
+}
+
+html, body {
+    height: 100%;
+    background-color: #eee;
+}
+
+a {
+    color: $primary-color;
+}
+
+a:hover, a:active {
+    color: $primary-complement;
+}
+
+p {
+    font-size: 16px;
+}
+
+.flicki-nav {
+    height: 10%;
+    min-height: 60px;
+}
+
+.nav {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100%;
+    background-color: $nav-color;
+}
+
+.nav-item a {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-brand, .nav-item {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -45px;
+    font-size: 3rem;
+    float: none;
+    width: 90px;
+    color: $gray;
+    text-align: center;
+}
+
+.nav-acct {
+    color: #fff;
+    text-align: right;
+}
+
+.btn-flicki {
+    color: #fff;
+    background-color: $primary-color;
+}
+
+.btn-flicki:hover, .btn-flicki:active {
+    background-color: $primary-complement;
+}
+
+.buttons {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 1200px) {
+    // .nav {
+    //     width: 1170px;
+    // }
+    
+    .navbar-brand:hover, .navbar-brand:active {
+        color: #fff;
+    }
+
+    .navbar-brand:hover:after, .navbar-brand:active:after {
+        @include flicki-icon;
+    }
+}
+
+@media (min-width: 992px) {
+    // .nav {
+    //     width: 970px;
+    // }
+}
+
+@media (min-width: 768px) {
+    // .nav {
+    //     width: 750px;
+    // }
+}

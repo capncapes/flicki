@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Workspace</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <title>Flicki - The Movie Wiki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= link_to "Home", root_path, :class => 'navbar-link' %>
-    <%= link_to "About", about_path, :class => 'navbar-link' %>
-    <% if user_signed_in? %>
-        Signed in as: <strong><%= current_user.email %></strong> |
-        <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-        <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
-        <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
-
-<%= yield %>
-
+    <div class="flicki-nav">
+        <ul class="nav navbar-expand-md">
+            <%= link_to "flicki", root_path, class: 'navbar-brand' %>
+            <li class="nav-item pull-left"><%= link_to "Home", root_path, class: 'nav-link' %></li>
+            <li class="nav-item pull-left"><%= link_to "About", about_path, class: 'nav-link' %></li>
+            <li class="nav-item pull-left"><%= link_to "Flickis", wikis_path, class: 'nav-link' %></li>
+            <% if user_signed_in? %>
+                <div class="nav-acct nav-item pull-right">
+                    <small>Signed in as: <strong><%= current_user.email %></strong></small></br>
+                    <%= link_to "Edit profile", edit_user_registration_path, class: 'nav-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
+                </div>
+            <% else %>
+                <li class="nav-item pull-right"><%= link_to "Sign In", new_user_session_path, class: 'nav-link' %></li>
+                <li class="nav-item pull-right"><%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %></li>
+            <% end %>
+        </ul>
+    </div>
+    <div class="container">
+        <%= yield %>
+    </div>
 </body>
 </html>
