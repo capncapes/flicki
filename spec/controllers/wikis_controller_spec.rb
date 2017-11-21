@@ -24,6 +24,10 @@ RSpec.describe WikisController, type: :controller do
   # end
 
   describe "GET #new" do
+    before :each do 
+      sign_in my_user
+    end
+    
     it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
@@ -41,6 +45,10 @@ RSpec.describe WikisController, type: :controller do
   end
   
   describe "POST create" do
+    before :each do 
+      sign_in my_user
+    end
+    
     it "increases the number of Wiki by 1" do
       expect{ post :create, params: { wiki: { title: RandomData.random_movie_title, director: RandomData.random_name, year: RandomData.random_year, private: [true, false].sample, user_id: RandomData.random_user_id } } }.to change(Wiki, :count).by(1)
     end

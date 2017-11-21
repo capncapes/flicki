@@ -14,13 +14,7 @@ class WikisController < ApplicationController
   end
   
   def create
-    @wiki = Wiki.new
-    @wiki.title = params[:wiki][:title]
-    @wiki.description = params[:wiki][:description]
-    @wiki.director = params[:wiki][:director]
-    @wiki.year = params[:wiki][:year]
-    @wiki.private = params[:wiki][:private]
-    @wiki.user_id = params[:wiki][:user_id]
+    @wiki = current_user.wikis.new(wiki_params)
     
     if @wiki.save
       flash[:notice] = "Wiki was saved!"
@@ -37,9 +31,8 @@ class WikisController < ApplicationController
   
   def update
     @wiki = Wiki.find(params[:id])
-    @wiki.assign_attributes(wiki_params)
     
-    if @wiki.save
+    if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Flicki was updated."
       redirect_to(@wiki)
     else
@@ -63,6 +56,6 @@ class WikisController < ApplicationController
   private
   
   def wiki_params
-    params.require(:wiki).permit(:title, :description, :director, :year, :private, :user_id)
+    params.require(:wiki).permit(:title, :description, :director, :year, :private)
   end
 end
