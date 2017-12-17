@@ -1,10 +1,11 @@
 require 'random_data'
+require 'faker'
 
 # Create Users
 15.times do
     User.create!(
-        email: RandomData.random_email,
-        password: RandomData.random_word + "abc"
+        email: Faker::Internet.unique.safe_email,
+        password: Faker::Lorem.characters(10)
     )
 end
 
@@ -12,11 +13,11 @@ end
 50.times do
     Wiki.create!(
         title: RandomData.random_movie_title,
-        director: RandomData.random_name,
+        director: Faker::Name.name,
         year: RandomData.random_year,
-        description: RandomData.random_paragraph,
+        description: Faker::Lorem.paragraph(10),
         private: [true, false].sample,
-        user_id: User.find(:all).sample
+        user_id: User.all.sample
     )
 end
 wikis = Wiki.all
