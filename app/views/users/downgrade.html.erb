@@ -1,0 +1,7 @@
+<h2>
+	You have successfully downgraded to a Standard account
+	<% if current_user.first_name %>,
+		<%= current_user.first_name %>
+	<% end %>!
+</h2>
+<%= link_to "Upgrade to Premium", new_charge_path, class: 'btn btn-flicki' %>

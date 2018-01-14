@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  post 'users/downgrade'
+
   resources :wikis
   resources :charges, only: [:new, :create]
 
