@@ -1,0 +1,13 @@
+<h1>Account Upgrade</h1>
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>You gotta pay to play. It's $15.00 to upgrade your account.</h3>
+    </div>
+    <div class="col-md-9">
+        <%= form_tag charges_path do %>
+			<h3>Amount: $15.00</h3>
+			<script class="stripe-button" src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>"></script>
+		<% end %>
+    </div>
+</div>

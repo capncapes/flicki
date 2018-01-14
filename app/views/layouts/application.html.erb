@@ -16,8 +16,17 @@
             <li class="nav-item pull-left"><%= link_to "Flickis", wikis_path, class: 'nav-link' %></li>
             <% if user_signed_in? %>
                 <div class="nav-acct nav-item pull-right">
-                    <small>Signed in as: <strong><%= current_user.email %></strong></br></small>
-                    <%= link_to "Edit profile", edit_user_registration_path, class: 'nav-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
+                    <small>Signed in as: <strong>
+                        <% if current_user.first_name %>
+                            <%= current_user.first_name %>
+                        <% else %>
+                            <%= current_user.email %>
+                        <% end %>
+                        </strong></br>
+                    </small>
+                    <% if current_user.role == "standard" %>
+                        <%= link_to "upgrade", new_charge_path, class: 'nav-btn upgrade-btn' %>
+                    <% end %><%= link_to "profile", edit_user_registration_path, class: 'nav-btn other-btn' %><%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'nav-btn other-btn'  %>
                 </div>
             <% else %>
                 <li class="nav-item pull-right"><%= link_to "Sign In", new_user_session_path, class: 'nav-link' %></li>

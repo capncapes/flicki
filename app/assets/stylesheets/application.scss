@@ -71,6 +71,43 @@ p {
     color: #fff;
 }
 
+.nav-acct .nav-btn {
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+    color: $yellow;
+    background-color: none;
+    font-variant: small-caps;
+    text-decoration: none;
+}
+
+.nav-acct .nav-btn.upgrade-btn {
+    border: 2px solid $yellow;
+}
+
+.nav-acct .nav-btn.upgrade-btn:hover, .nav-acct .nav-btn.upgrade-btn:active {
+    border-color: #fff;
+}
+
+.nav-acct .nav-btn.other-btn {
+    border: 2px solid none;
+}
+
+.badge {
+    text-transform: uppercase;
+}
+
+.badge.badge-standard {
+    background-color: $gray;
+}
+
+.badge.badge-premium {
+    background-color: $yellow;
+}
+
+.badge.badge-admin {
+    background-color: $orange;
+}
+
 div.col-md-3.buttons {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -83,6 +120,10 @@ div.col-md-3.buttons {
 
 .btn-flicki:hover, .btn-flicki:active {
     background-color: $orange;
+}
+
+.field.field-margin {
+    margin: 0 0 25px 0;
 }
 
 @media (min-width: 1200px) {

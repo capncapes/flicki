@@ -11,6 +11,7 @@ source 'https://rubygems.org'
  group :production do
    # Use pg as the production database for Active Record
    gem 'pg', '~> 0.21.0'
+   gem 'rails_12factor'
  end
  
  group :development do
@@ -39,12 +40,16 @@ source 'https://rubygems.org'
  gem 'jbuilder', '~> 2.5'
  
  gem 'thor', '0.19.1'
+
+ gem 'figaro', '1.0'
  
  gem 'devise'
 
  gem 'pundit'
 
  gem 'faker'
+
+ gem 'stripe'
  
  gem 'bootstrap-sass'
  
