@@ -14,7 +14,7 @@
     <% if current_user.role == "standard" %>
       <%= link_to "Upgrade to Premium", new_charge_path, class: 'btn btn-flicki' %>
     <% elsif current_user.role == "premium" %>
-      <%= button_to "Return to Standard", users_downgrade_path(current_user), data: { confirm: "Are you sure?" }, method: :downgrade, class: 'btn btn-flicki' %>
+      <%= button_to "Return to Standard", users_downgrade_path(current_user), data: { confirm: "Are you sure? Your private Flickis will become public." }, method: :downgrade, class: 'btn btn-flicki' %>
     <% end %>
 
     <h3>Cancel Account</h3>

@@ -7,6 +7,10 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
+    unless @wiki.private == false || current_user == @wiki.user
+      flash[:alert] = "You don't have access to that Flicki!"
+      redirect_to edit_user_registration_path(session[:user])
+    end
   end
 
   def new
@@ -17,10 +21,10 @@ class WikisController < ApplicationController
     @wiki = current_user.wikis.new(wiki_params)
     
     if @wiki.save
-      flash[:notice] = "Wiki was saved!"
+      flash[:notice] = "Flicki was saved!"
       redirect_to(@wiki)
     else
-      flash.now[:alert] = "There was an error saving the wiki. Please try again."
+      flash.now[:alert] = "There was an error saving the Flicki. Please try again."
       render(:new)
     end
   end
