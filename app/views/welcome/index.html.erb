@@ -1,2 +1,21 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="jumbotron">
+    <%= video_tag "director_chair_5130.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video-background" %>
+    <h1>Flicki</h1>
+    <% if current_user %>
+    	<% if current_user.first_name %>
+    		<p>Hi, <%= current_user.first_name %>! What would you like to do?</p>
+    	<% else %>
+    		<p>Hello! What would you like to do?</p>
+    	<% end %>
+        <p>
+            <%= link_to "Explore Flickis", wikis_path %> or
+            <%= link_to "Create a New Flicki", new_wiki_path %>
+        </p>
+    <% else %>
+    	<p>Welcome to Flicki, the movie wiki!</p
+        <p>
+            <%= link_to "Sign In", new_user_session_path %> or
+            <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+        </p>
+    <% end %>
+</div>

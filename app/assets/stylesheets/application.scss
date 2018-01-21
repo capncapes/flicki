@@ -9,11 +9,10 @@ $gray: #555;
 
 html, body {
     height: 100%;
-    background-color: #eee;
 }
 
 a {
-    color: $yellow;
+    color: $orange;
 }
 
 a:hover, a:active {
@@ -37,6 +36,7 @@ p {
 }
 
 .nav-item a {
+    color: $yellow;
     padding-left: 0;
     padding-right: 0;
 }
@@ -90,6 +90,32 @@ p {
 
 .nav-acct .nav-btn.other-btn {
     border: 2px solid none;
+}
+
+.jumbotron {
+    position: relative;
+    margin-top: 5rem;
+    overflow: hidden;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.jumbotron a {
+    color: $yellow;
+}
+
+.jumbotron a:hover, .jumbotron a:active {
+    color: #fff;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -10;
+    width: 100%;
 }
 
 .badge {
